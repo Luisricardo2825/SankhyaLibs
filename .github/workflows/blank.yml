@@ -7,16 +7,25 @@ on:
 
 
 jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run script file
+      run: |
+         chmod +x ./public/ZipLibs.sh
+          ./public/ZipLibs.sh
+      shell: bash
+  
   pre-release:
     name: "Pre Release"
     runs-on: "ubuntu-latest"
-
     steps:
       # ...
       - name: "Zip folder "
         run: |
-          chmod +x ./public/ZipLibs.sh
-          ./public/ZipLibs.sh
+          echo "Iniciando..."
+          
       
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
