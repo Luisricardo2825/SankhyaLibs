@@ -5,6 +5,7 @@ on:
     branches:
       - "master"
 
+
 jobs:
   pre-release:
     name: "Pre Release"
@@ -14,7 +15,8 @@ jobs:
       # ...
       - name: "Zip folder "
         run: |
-          ./ZipLibs.sh
+          chmod +x ./public/ZipLibs.sh
+          ./public/ZipLibs.sh
       
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
