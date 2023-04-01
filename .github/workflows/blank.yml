@@ -8,24 +8,20 @@ on:
 
 jobs:
   build:
-    name: "Pre Release"
+    name: "Create Libs.zip"
     runs-on: "ubuntu-latest"
     steps:
-    - uses: actions/checkout@v2
-    - name: "Zip folder"
-      run: |
-         chmod +x ./ZipLibs.sh
-          ./ZipLibs.sh
-      shell: bash
-  pre-release:
-    runs-on: "ubuntu-latest"
-    steps:
-      # ...
+      - uses: actions/checkout@v2
+      - name: "Zip folder"
+        run: |
+           chmod +x ./ZipLibs.sh
+            ./ZipLibs.sh
+        shell: bash
+        
       - name: "Release"
         run: |
           echo "Iniciando..."
           
-      
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
@@ -33,4 +29,5 @@ jobs:
           prerelease: false
           files: |
             LICENSE.txt
-            *.zip
+            Libs.zip
+     
