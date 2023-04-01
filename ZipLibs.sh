@@ -1,1 +1,1 @@
-jar -cfM "Libs.zip" "Libs"
+jar -M --create --file  Libs.zip -C Libs .
